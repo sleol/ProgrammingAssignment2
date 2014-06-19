@@ -1,8 +1,9 @@
 ## Pair of functions. First creates a new object that is a matrix & can cache its inverse
 ## Second computes the inverse of the matrix, unless it has already been calculated. In that case use the cached version
 
-## Write a short comment describing this function
-
+## makecachematrix  creates a list containing functions to:
+## set the value of the matrix
+## get the value of the matrix
 makeCacheMatrix <- function(x = matrix()) {
       m<-NULL
       set<-function(y){
@@ -17,6 +18,9 @@ makeCacheMatrix <- function(x = matrix()) {
            getmatrix=getmatrix)
 }
 
+
+## Cachesolve uses the solve() function to calculate the inverse of the matrix,
+## first it checks if there is a cached version of the matrix to use instead.
 cacheSolve <- function(x=matrix(), ...) {
       m<-x$getmatrix()
       if(!is.null(m)){
